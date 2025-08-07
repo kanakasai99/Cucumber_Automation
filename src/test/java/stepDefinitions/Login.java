@@ -3,8 +3,12 @@ package stepDefinitions;
 import Driver.WebDriverFactory;
 import io.cucumber.java.en.*;
 import org.apache.log4j.Logger;
+//import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pageclasses.LoginPage;
+
+import static org.junit.Assert.*;
 
 public class Login {
 
@@ -30,13 +34,16 @@ public class Login {
     public void page_title_should_be(String expectedTitle) {
         String actualTitle = loginPage.getLoginPageTitle();
         log.info("Asserting page title");
-        assert actualTitle.equals(expectedTitle);
+       // assert actualTitle.equals(expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle, "Page title is mismatch, please provide valid URL and credentials");
+   //Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     @Then("forgot password link should be displayed")
     public void forgot_password_link_should_be_displayed() {
         log.info("Checking if forgot password link is visible");
-        assert loginPage.isForgotPasswordLinkExist();
+        //assert loginPage.isForgotPasswordLinkExist();
+        Assert.assertTrue(loginPage.isForgotPasswordLinkExist());
     }
 
     @When("user enter the username {string}")

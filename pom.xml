@@ -61,6 +61,7 @@
             <artifactId>extentreports-cucumber7-adapter</artifactId>
             <version>${extentreports.adapter.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>

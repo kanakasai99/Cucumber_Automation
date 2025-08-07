@@ -23,7 +23,6 @@ public class ApplicationHooks {
         configReader = new ConfigReader();
         prop = configReader.init_prop();
         ExtentService.getInstance(); // Auto-load config
-        ExtentService.getInstance().setSystemInfo("QA Engineer", "Sai");
         log.info("Config properties loaded and Extent report initialized");
     }
 

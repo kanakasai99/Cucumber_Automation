@@ -2,7 +2,7 @@ Feature: Login page feature for demoopencart page
   Scenario: Login page title
     Given user is on login page
     When user gets the title of the login page
-    Then page title should be "Adactin.com - Hotel Reservation System"
+    Then page title should be "Adactin.com - Hotl Reservation System"
 
   Scenario: Forgot password link
     Given user is on login page
