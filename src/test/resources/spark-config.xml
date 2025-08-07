@@ -1,0 +1,11 @@
+<extentreports>
+    <configuration>
+        <encoding>utf-8</encoding>
+        <protocol>https</protocol>
+        <theme>dark</theme>
+        <documentTitle>BN Automation Report</documentTitle>
+        <reportName>Barnes and Noble - Regression</reportName>
+        <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+        <timelineEnabled>true</timelineEnabled>
+    </configuration>
+</extentreports>
