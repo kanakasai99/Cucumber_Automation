@@ -11,7 +11,7 @@ Feature: Login page feature for demoopencart page
   Scenario: Login with valid credentials
     Given user is on login page
     When user enter the username "kanakasai.mereddy03@gmail.com"
-    And user enter the password "Kanak@031"
+    And user enter the password "Kanak@0321"
     And clicks on login button
     Then user gets the title of the login page
     And page title should be "Adactin.com - Search Hotel"
