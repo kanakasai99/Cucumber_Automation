@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Barnes and Noble - Regression</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 07, 2025 11:59:10</span></a>
+<a href="#"><span class="badge badge-primary">Aug 07, 2025 16:40:51</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">Login page feature for demoopencart page</p>
             <p class="text-sm">
-              <span>11:59:11 AM</span> / <span>00:00:12:669</span>
+              <span>4:40:52 PM</span> / <span>00:00:14:363</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Login page feature for demoopencart page</h5>
-<span class='badge badge-success'>08.07.2025 11:59:11 AM</span>
-<span class='badge badge-danger'>08.07.2025 11:59:23 AM</span>
-<span class='badge badge-default'>00:00:12:669</span>
+<span class='badge badge-success'>08.07.2025 4:40:52 PM</span>
+<span class='badge badge-danger'>08.07.2025 4:41:06 PM</span>
+<span class='badge badge-default'>00:00:14:363</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -110,13 +110,10 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Login page title</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Login page title</div>
       </div>
     </div>
-        <div class="">
+        <div class="collapse">
           <div class="card-body">
               <div class="step pass-bg" title="stepDefinitions.Login.user_is_on_login_page()">
                 <span>Given user is on login page</span>
@@ -128,29 +125,8 @@
       <div>
       </div>
               </div>
-              <div class="step fail-bg" title="stepDefinitions.Login.page_title_should_be(java.lang.String)">
-                <span>Then page title should be "Adactin.com - Hotl Reservation System"</span>
-      <div>
-        <textarea disabled class="code-block">java.lang.AssertionError: Page title is mismatch, please provide valid URL and credentials expected [Adactin.com - Hotl Reservation System] but found [Adactin.com - Hotel Reservation System]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at stepDefinitions.Login.page_title_should_be(Login.java:38)
-	at ✽.page title should be "Adactin.com - Hotl Reservation System"(file:///C:/Users/Sai/IdeaProjects/SeleniumAutomationLab/src/test/resources/Features/Login.feature:5)
-</textarea>
-      
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER">
-                <span>hooks.ApplicationHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Login_page_title
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
-    
-    </div></div>
-</div>
+              <div class="step pass-bg" title="stepDefinitions.Login.page_title_should_be(java.lang.String)">
+                <span>Then page title should be "Adactin.com - Hotel Reservation System"</span>
       <div>
       </div>
               </div>
@@ -160,7 +136,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="10"><span class="badge log pass-bg mr-2">Pass</span>Forgot password link</div>
+        <div class="node" id="11"><span class="badge log pass-bg mr-2">Pass</span>Forgot password link</div>
       </div>
     </div>
         <div class="collapse">
@@ -181,10 +157,13 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="17"><span class="badge log pass-bg mr-2">Pass</span>Login with valid credentials</div>
+        <div class="node" id="19"><span class="badge log fail-bg mr-2">Fail</span>Login with valid credentials</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
               <div class="step pass-bg" title="stepDefinitions.Login.user_is_on_login_page()">
                 <span>Given user is on login page</span>
@@ -197,7 +176,7 @@
       </div>
               </div>
               <div class="step pass-bg" title="stepDefinitions.Login.user_enter_the_password(java.lang.String)">
-                <span>And user enter the password "Kanak@0321"</span>
+                <span>And user enter the password "Kanak@031"</span>
       <div>
       </div>
               </div>
@@ -211,8 +190,29 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepDefinitions.Login.page_title_should_be(java.lang.String)">
+              <div class="step fail-bg" title="stepDefinitions.Login.page_title_should_be(java.lang.String)">
                 <span>And page title should be "Adactin.com - Search Hotel"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Page title is mismatch, please provide valid URL and credentials expected [Adactin.com - Search Hotel] but found [Adactin.com - Hotel Reservation System]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at stepDefinitions.Login.page_title_should_be(Login.java:38)
+	at ✽.page title should be "Adactin.com - Search Hotel"(file:///C:/Users/Sai/IdeaProjects/SeleniumAutomationLab/src/test/resources/Features/Login.feature:17)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>hooks.ApplicationHooks.captureResult(io.cucumber.java.Scenario)</span>
+      <div>Failure Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
+    
+    </div></div>
+</div>
       <div>
       </div>
               </div>
@@ -263,11 +263,11 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>11:59:15 AM</td>
+<td>16:41:05 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='7'>Then page title should be "Adactin.com - Hotl Reservation System"</a>
+<a href="#" class="linked" test-id='1' id='28'>And page title should be "Adactin.com - Search Hotel"</a>
 <div class="">
-<span class="badge badge-default">Login page feature for demoopencart page.Login page title.Then page title should be "Adactin.com - Hotl Reservation System"</span>
+<span class="badge badge-default">Login page feature for demoopencart page.Login with valid credentials.And page title should be "Adactin.com - Search Hotel"</span>
 </div>
 </td>
 </tr>
@@ -288,13 +288,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 07, 2025 11:59:10</h3>
+<h3>Aug 07, 2025 16:40:51</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 07, 2025 11:59:24</h3>
+<h3>Aug 07, 2025 16:41:07</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -384,7 +384,7 @@
 </div></div>
 <script>
 var timeline = {
-"Login page feature for demoopencart page":12.669
+"Login page feature for demoopencart page":14.363
 };
 </script>
 <div class="row">

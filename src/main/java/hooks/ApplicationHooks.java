@@ -1,57 +1,69 @@
 package hooks;
 
 import Driver.WebDriverFactory;
-import com.aventstack.extentreports.service.ExtentService;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
-import org.apache.log4j.Logger;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utils.ConfigReader;
+import utils.ExtentSparkReporterManager;
+import utils.ScreenshotUtils;
 
 import java.util.Properties;
 
 public class ApplicationHooks {
 
-    private static final Logger log = Logger.getLogger(ApplicationHooks.class);
     private ConfigReader configReader;
     private Properties prop;
+    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
+
+    @BeforeAll
+    public static void setupReport() {
+        ExtentSparkReporterManager.getInstance(); // initialize once
+    }
 
     @Before(order = 0)
-    public void getProperty() {
+    public void loadConfig() {
         configReader = new ConfigReader();
         prop = configReader.init_prop();
-        ExtentService.getInstance(); // Auto-load config
-        log.info("Config properties loaded and Extent report initialized");
     }
 
     @Before(order = 1)
-    public void launchBrowser() {
+    public void launchBrowser(Scenario scenario) {
         String browserName = prop.getProperty("browser");
         WebDriverFactory.init_Driver(browserName);
-        log.info("Launched browser: " + browserName);
+
+        ExtentTest test = ExtentSparkReporterManager.getInstance()
+                .createTest("Scenario: " + scenario.getName());
+        extentTest.set(test);
+        extentTest.get().log(Status.INFO, "Started scenario: " + scenario.getName());
     }
 
     @After(order = 1)
-    public void tearDown(Scenario scenario) {
+    public void captureResult(Scenario scenario) {
+        String scenarioName = scenario.getName().replaceAll(" ", "_");
+
         if (scenario.isFailed()) {
-            try {
-                byte[] screenshot = ((TakesScreenshot) WebDriverFactory.getDriver())
-                        .getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", scenario.getName().replaceAll(" ", "_"));
-                log.warn("Scenario failed. Screenshot attached: " + scenario.getName());
-            } catch (Exception e) {
-                log.error("Failed to capture screenshot: " + e.getMessage());
-            }
+            String screenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
+            extentTest.get().fail("Scenario failed. Screenshot attached: " + scenario.getName());
+            extentTest.get().addScreenCaptureFromPath(screenshotPath);
+
+            byte[] screenshotBytes = ((TakesScreenshot) WebDriverFactory.getDriver())
+                    .getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshotBytes, "image/png", "Failure Screenshot");
         } else {
-            log.info("Scenario passed: " + scenario.getName());
+            extentTest.get().pass("Scenario passed: " + scenario.getName());
         }
     }
 
     @After(order = 0)
-    public void quitBrowser() {
+    public void closeBrowser() {
         WebDriverFactory.quitDriver();
-        log.info("Browser session ended");
+    }
+
+    @AfterAll
+    public static void tearDownReport() {
+        ExtentSparkReporterManager.getInstance().flush();
     }
 }
