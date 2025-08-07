@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utils.ConfigReader;
 import utils.ExtentSparkReporterManager;
+import utils.LogInitializer;
 import utils.ScreenshotUtils;
 
 import java.util.Properties;
@@ -20,7 +21,8 @@ public class ApplicationHooks {
 
     @BeforeAll
     public static void setupReport() {
-        ExtentSparkReporterManager.getInstance(); // initialize once
+        LogInitializer.initializeLogger(); // ✅ Initialize dynamic timestamp log
+        ExtentSparkReporterManager.getInstance(); // initialize extent report
     }
 
     @Before(order = 0)
