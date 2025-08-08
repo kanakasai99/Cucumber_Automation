@@ -2,7 +2,7 @@ Feature: Login page feature for adactin page
   Scenario: Login page title
     Given user is on login page
     When user gets the title of the login page
-    Then page title should be "Adactin.com - Hotl Reservation System"
+    Then page title should be "Adactin.com - Hotel Reservation System"
 
   Scenario: Forgot password link
     Given user is on login page

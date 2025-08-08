@@ -48,10 +48,9 @@ public class ApplicationHooks {
         String scenarioName = scenario.getName().replaceAll(" ", "_");
 
         if (scenario.isFailed()) {
-            // Capture absolute path
-            String absScreenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
-            // Build relative path for Extent
-            String relPath = "../screenshots/" + new File(absScreenshotPath).getName();
+            // Capture screenshot
+            String screenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
+            String relPath = "../screenshots/" + new File(screenshotPath).getName();
 
             // Log to Extent report
             extentTest.get().fail("Scenario failed: " + scenario.getName());

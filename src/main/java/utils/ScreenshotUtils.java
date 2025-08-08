@@ -18,7 +18,7 @@ public class ScreenshotUtils {
             System.getProperty("user.dir") + "/test-output/screenshots/";
 
     /**
-     * Captures screenshot and returns ABSOLUTE path for Extent report linking.
+     * Captures screenshot and returns RELATIVE path for Extent report linking.
      */
     public static String captureScreenshot(String scenarioName) {
         WebDriver driver = WebDriverFactory.getDriver();
@@ -35,8 +35,8 @@ public class ScreenshotUtils {
             e.printStackTrace();
         }
 
-        // Return ABSOLUTE path
-        return destFile.getAbsolutePath();
+        // Relative path from Extent report HTML (inside test-output/ExtentReport) to screenshots folder
+        return "../screenshots/" + fileName;
     }
 
     public static byte[] getScreenshotBytes() {
