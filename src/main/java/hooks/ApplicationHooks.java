@@ -48,15 +48,12 @@ public class ApplicationHooks {
         String scenarioName = scenario.getName().replaceAll(" ", "_");
 
         if (scenario.isFailed()) {
-            // Capture screenshot
             String screenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
             String relPath = "../screenshots/" + new File(screenshotPath).getName();
 
-            // Log to Extent report
             extentTest.get().fail("Scenario failed: " + scenario.getName());
             extentTest.get().addScreenCaptureFromPath(relPath);
 
-            // Attach to Cucumber report
             byte[] screenshotBytes = ((TakesScreenshot) WebDriverFactory.getDriver())
                     .getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshotBytes, "image/png", "Failure Screenshot");

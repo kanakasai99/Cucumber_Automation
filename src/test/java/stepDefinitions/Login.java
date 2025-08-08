@@ -24,8 +24,8 @@ public class Login {
         log.info("Navigated to login page");
     }
 
-    @When("user gets the title of the login page")
-    public void user_gets_the_title_of_the_login_page() {
+    @When("user gets the title of the page")
+    public void user_gets_the_title_of_the_page() {
         String title = loginPage.getLoginPageTitle();
         log.info("Login page title is: " + title);
     }
