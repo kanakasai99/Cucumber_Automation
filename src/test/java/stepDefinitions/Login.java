@@ -5,8 +5,12 @@ import io.cucumber.java.en.*;
 import org.apache.log4j.Logger;
 //import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageclasses.LoginPage;
+
+import java.time.Duration;
 
 import static org.junit.Assert.*;
 
@@ -26,6 +30,10 @@ public class Login {
 
     @When("user gets the title of the page")
     public void user_gets_the_title_of_the_page() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait until title contains some expected text
+        wait.until(ExpectedConditions.titleContains("Adactin.com - Hotel Reservation System"));
         String title = loginPage.getLoginPageTitle();
         log.info("Login page title is: " + title);
     }
@@ -34,6 +42,10 @@ public class Login {
     public void page_title_should_be(String expectedTitle) {
         String actualTitle = loginPage.getLoginPageTitle();
         log.info("Asserting page title");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait until title contains some expected text
+        wait.until(ExpectedConditions.titleContains(expectedTitle));
        // assert actualTitle.equals(expectedTitle);
         Assert.assertEquals(actualTitle, expectedTitle, "Page title is mismatch, please provide valid URL and credentials");
    //Assert.assertEquals(expectedTitle,actualTitle);
@@ -60,4 +72,18 @@ public class Login {
     public void clicks_on_login_button() {
         loginPage.clickLogin();
     }
+    @Then("new page title should be {string}")
+    public void new_page_title_should_be(String expectedTitle) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait until the exact title is present
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
+
+        String actualTitle = loginPage.getLoginPageTitle();
+        log.info("Asserting new page title: " + actualTitle);
+
+        Assert.assertEquals(actualTitle, expectedTitle,
+                "Page title is mismatch, please provide valid URL and credentials");
+    }
+
 }
