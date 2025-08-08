@@ -13,23 +13,30 @@ import java.util.Date;
 
 public class ScreenshotUtils {
 
-    private static final String SCREENSHOT_FOLDER = System.getProperty("user.dir") + "/screenshots/";
+    // Folder where screenshots will be stored
+    private static final String SCREENSHOT_FOLDER =
+            System.getProperty("user.dir") + "/test-output/screenshots/";
 
+    /**
+     * Captures screenshot and returns ABSOLUTE path for Extent report linking.
+     */
     public static String captureScreenshot(String scenarioName) {
         WebDriver driver = WebDriverFactory.getDriver();
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String fileName = "screenshot_" + scenarioName + "_" + timestamp + ".png";
-        String fullPath = SCREENSHOT_FOLDER + fileName;
+
+        File destFile = new File(SCREENSHOT_FOLDER + fileName);
 
         try {
-            FileUtils.copyFile(src, new File(fullPath));
+            FileUtils.copyFile(src, destFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return fullPath;
+        // Return ABSOLUTE path
+        return destFile.getAbsolutePath();
     }
 
     public static byte[] getScreenshotBytes() {

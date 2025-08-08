@@ -11,6 +11,7 @@ import utils.ExtentSparkReporterManager;
 import utils.LogInitializer;
 import utils.ScreenshotUtils;
 
+import java.io.File;
 import java.util.Properties;
 
 public class ApplicationHooks {
@@ -21,8 +22,8 @@ public class ApplicationHooks {
 
     @BeforeAll
     public static void setupReport() {
-        LogInitializer.initializeLogger(); // ✅ Initialize dynamic timestamp log
-        ExtentSparkReporterManager.getInstance(); // initialize extent report
+        LogInitializer.initializeLogger();
+        ExtentSparkReporterManager.getInstance(); // Initialize Extent report
     }
 
     @Before(order = 0)
@@ -47,10 +48,16 @@ public class ApplicationHooks {
         String scenarioName = scenario.getName().replaceAll(" ", "_");
 
         if (scenario.isFailed()) {
-            String screenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
-            extentTest.get().fail("Scenario failed. Screenshot attached: " + scenario.getName());
-            extentTest.get().addScreenCaptureFromPath(screenshotPath);
+            // Capture absolute path
+            String absScreenshotPath = ScreenshotUtils.captureScreenshot(scenarioName);
+            // Build relative path for Extent
+            String relPath = "../screenshots/" + new File(absScreenshotPath).getName();
 
+            // Log to Extent report
+            extentTest.get().fail("Scenario failed: " + scenario.getName());
+            extentTest.get().addScreenCaptureFromPath(relPath);
+
+            // Attach to Cucumber report
             byte[] screenshotBytes = ((TakesScreenshot) WebDriverFactory.getDriver())
                     .getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshotBytes, "image/png", "Failure Screenshot");
