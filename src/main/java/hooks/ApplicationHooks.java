@@ -12,6 +12,7 @@ import utils.LogInitializer;
 import utils.ScreenshotUtils;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.Properties;
 
 public class ApplicationHooks {
@@ -36,6 +37,10 @@ public class ApplicationHooks {
     public void launchBrowser(Scenario scenario) {
         String browserName = prop.getProperty("browser");
         WebDriverFactory.init_Driver(browserName);
+        WebDriverFactory.getDriver()
+                .manage()
+                .timeouts()
+                .implicitlyWait(Duration.ofSeconds(10));
 
         ExtentTest test = ExtentSparkReporterManager.getInstance()
                 .createTest("Scenario: " + scenario.getName());
