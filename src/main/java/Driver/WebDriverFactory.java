@@ -6,16 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class WebDriverFactory {
-
     private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
+    // Make initialization more robust
     public static void init_Driver(String browser) {
         if (getDriver() == null) {
             if (browser.equalsIgnoreCase("chrome")) {
                 WebDriverManager.chromedriver().setup();
                 tlDriver.set(new ChromeDriver());
-            } else if (browser.equalsIgnoreCase("edge")) {
-                System.setProperty("webdriver.edge.driver", "C:\\drivers\\msedgedriver.exe");
+            }else if (browser.equalsIgnoreCase("edge")) {
+                System.setProperty("webdriver.edge.driver", "C:\\edgedriver\\msedgedriver.exe");
                 tlDriver.set(new EdgeDriver());
             } else {
                 throw new IllegalArgumentException("Browser not supported: " + browser);
