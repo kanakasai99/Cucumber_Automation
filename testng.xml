@@ -1,6 +1,9 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="BN_Suite" verbose="1" parallel="tests" thread-count="2">
-    <test name="BN_Tests">
+<suite name="BN_Suite" parallel="tests" thread-count="2">
+    <test name="Chrome_Tests">
+        <parameter name="browser" value="chrome"/>
+        <system-properties>
+            <property name="browser" value="chrome"/>
+        </system-properties>
         <classes>
             <class name="runner.TestNGCucumberRunner"/>
         </classes>

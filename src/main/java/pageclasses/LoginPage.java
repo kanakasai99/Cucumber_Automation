@@ -57,4 +57,11 @@ public class LoginPage {
         log.info("Clicking on Login Button");
         loginBtn.click();
     }
+    public boolean locationDisplayed() {
+        boolean exists = location.isDisplayed();
+        log.info("Checking location element " + exists);
+        return exists;
+    }
+    @FindBy(xpath = "//td[text()='Location']")
+    private WebElement location;
 }

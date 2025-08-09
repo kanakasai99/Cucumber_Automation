@@ -32,20 +32,27 @@ public class ApplicationHooks {
         configReader = new ConfigReader();
         prop = configReader.init_prop();
     }
-
     @Before(order = 1)
     public void launchBrowser(Scenario scenario) {
-        String browserName = prop.getProperty("browser");
+        // Try to get browser from system property or TestNG parameter
+        // If not set, fall back to the Config.properties value
+        String browserName = System.getProperty("browser", prop.getProperty("browser"));
+
+        // Initialize the driver
         WebDriverFactory.init_Driver(browserName);
+
+        // Set implicit wait
         WebDriverFactory.getDriver()
                 .manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(10));
 
+        // Create Extent Report entry for this scenario
         ExtentTest test = ExtentSparkReporterManager.getInstance()
                 .createTest("Scenario: " + scenario.getName());
         extentTest.set(test);
-        extentTest.get().log(Status.INFO, "Started scenario: " + scenario.getName());
+        extentTest.get().log(Status.INFO,
+                "Started scenario: " + scenario.getName() + " on browser: " + browserName);
     }
 
     @After(order = 1)

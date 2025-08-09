@@ -12,8 +12,6 @@ import pageclasses.LoginPage;
 
 import java.time.Duration;
 
-import static org.junit.Assert.*;
-
 public class Login {
 
     private static final Logger log = Logger.getLogger(Login.class);
@@ -45,7 +43,7 @@ public class Login {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Wait until title contains some expected text
-        wait.until(ExpectedConditions.titleContains(expectedTitle));
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
        // assert actualTitle.equals(expectedTitle);
         Assert.assertEquals(actualTitle, expectedTitle, "Page title is mismatch, please provide valid URL and credentials");
    //Assert.assertEquals(expectedTitle,actualTitle);
@@ -72,18 +70,12 @@ public class Login {
     public void clicks_on_login_button() {
         loginPage.clickLogin();
     }
-    @Then("new page title should be {string}")
-    public void new_page_title_should_be(String expectedTitle) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    @Then("user gets search page content {string}")
+    public void user_gets_search_page_content(String locationWebElement) {
 
-        // Wait until the exact title is present
-        wait.until(ExpectedConditions.titleIs(expectedTitle));
+        Assert.assertTrue( loginPage.locationDisplayed(),"Location webelement is not present after login");
 
-        String actualTitle = loginPage.getLoginPageTitle();
-        log.info("Asserting new page title: " + actualTitle);
-
-        Assert.assertEquals(actualTitle, expectedTitle,
-                "Page title is mismatch, please provide valid URL and credentials");
+        }
     }
 
-}
+

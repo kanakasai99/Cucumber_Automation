@@ -13,5 +13,4 @@ Feature: Login page feature for adactin page
     When user enter the username "kanakasai.mereddy03@gmail.com"
     And user enter the password "Kanak@0321"
     And clicks on login button
-    Then user gets the title of the page
-    And new page title should be "Adactin.com - Search Hotel"
+    Then user gets search page content "Location"
