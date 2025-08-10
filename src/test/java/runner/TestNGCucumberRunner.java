@@ -11,7 +11,8 @@ import org.testng.annotations.DataProvider;
                 "pretty",
                 "json:target/cucumber-reports/Cucumber.json",
                 "html:target/cucumber-reports/Cucumber.html",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "rerun:test-output/failedrerun.txt"
         },
         monochrome = true
 
