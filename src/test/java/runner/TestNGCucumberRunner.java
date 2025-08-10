@@ -14,7 +14,9 @@ import org.testng.annotations.DataProvider;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "rerun:test-output/failedrerun.txt"
         },
-        monochrome = true
+        //tags="not @Skip",
+        monochrome = true,
+        dryRun = false
 
 )
 public class TestNGCucumberRunner extends AbstractTestNGCucumberTests {

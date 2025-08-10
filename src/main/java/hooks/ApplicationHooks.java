@@ -6,6 +6,9 @@ import com.aventstack.extentreports.Status;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.SkipException;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import utils.ConfigReader;
 import utils.ExtentSparkReporterManager;
 import utils.LogInitializer;
@@ -26,6 +29,13 @@ public class ApplicationHooks {
         LogInitializer.initializeLogger();
         ExtentSparkReporterManager.getInstance(); // Initialize Extent report
     }
+//    @Before(value="@skip",order=0)
+//    public void skipTaggedScenario(Scenario scenario) {
+//        if (scenario.getSourceTagNames().contains("@Skip")) {
+//            throw new SkipException("Skipping scenario: " + scenario.getName());
+//        }
+//    }
+
 
     @Before(order = 0)
     public void loadConfig() {
