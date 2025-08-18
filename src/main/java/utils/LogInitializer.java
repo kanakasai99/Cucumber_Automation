@@ -13,7 +13,7 @@ public class LogInitializer {
         PropertyConfigurator.configure("src/test/resources/log4j.properties");
 
         String logDir = "C:/Users/Sai/IdeaProjects/SeleniumAutomationLab/test-output/logs/";
-      
+
 
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String logFileName = logDir + "log_" + timestamp + ".log";
