@@ -12,14 +12,13 @@ public class LogInitializer {
     public static void initializeLogger() {
         PropertyConfigurator.configure("src/test/resources/log4j.properties");
 
+        String logDir = "C:/Users/Sai/IdeaProjects/SeleniumAutomationLab/test-output/logs/";
+      
 
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String logFileName = "logs/automation_" + timestamp + ".log";
+        String logFileName = logDir + "log_" + timestamp + ".log";
 
         try {
-            // Ensure logs directory exists
-            new File("logs").mkdirs();
-
             FileAppender fileAppender = new FileAppender();
             fileAppender.setName("dynamicFileAppender");
             fileAppender.setFile(logFileName);
@@ -28,6 +27,8 @@ public class LogInitializer {
             fileAppender.activateOptions();
 
             Logger.getRootLogger().addAppender(fileAppender);
+
+            System.out.println("✅ Logs will be written to: " + logFileName);
         } catch (Exception e) {
             e.printStackTrace();
         }

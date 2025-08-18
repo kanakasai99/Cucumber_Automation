@@ -17,7 +17,7 @@ public class ExtentSparkReporterManager {
 
             ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
             sparkReporter.config().setReportName("Barnes & Noble Automation Report");
-            sparkReporter.config().setDocumentTitle("Selenium Execution Report");
+            sparkReporter.config().setDocumentTitle("B&N Execution Report");
 
             extent = new ExtentReports();
             extent.attachReporter(sparkReporter);
