@@ -89,7 +89,7 @@ public class ApplicationHooks {
         WebDriverFactory.quitDriver();
     }
 
-    @AfterAll
+   @AfterAll
     public static void tearDownReport() {
         ExtentSparkReporterManager.getInstance().flush();
     }

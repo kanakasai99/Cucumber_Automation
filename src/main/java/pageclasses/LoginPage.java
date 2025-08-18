@@ -1,20 +1,14 @@
 package pageclasses;
 
-import org.apache.log4j.Logger;
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-
-    private static final Logger log = Logger.getLogger(LoginPage.class);
-    private WebDriver driver;
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-        log.info("LoginPage initialized");
+        super(driver);  // Call BasePage constructor
     }
 
     @FindBy(id = "username")
@@ -28,6 +22,9 @@ public class LoginPage {
 
     @FindBy(linkText = "Forgot Password?")
     private WebElement forgotPasswordLink;
+
+    @FindBy(xpath = "//td[text()='Location']")
+    private WebElement location;
 
     public String getLoginPageTitle() {
         String title = driver.getTitle();
@@ -57,11 +54,10 @@ public class LoginPage {
         log.info("Clicking on Login Button");
         loginBtn.click();
     }
+
     public boolean locationDisplayed() {
         boolean exists = location.isDisplayed();
         log.info("Checking location element " + exists);
         return exists;
     }
-    @FindBy(xpath = "//td[text()='Location']")
-    private WebElement location;
 }
