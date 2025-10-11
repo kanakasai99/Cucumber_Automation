@@ -3,6 +3,7 @@ package Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class WebDriverFactory {
@@ -11,9 +12,11 @@ public class WebDriverFactory {
     // Make initialization more robust
     public static void init_Driver(String browser) {
         if (getDriver() == null) {
+            ChromeOptions option =new ChromeOptions();
+            option.addArguments("--headless");
             if (browser.equalsIgnoreCase("chrome")) {
                 WebDriverManager.chromedriver().setup();
-                tlDriver.set(new ChromeDriver());
+                tlDriver.set(new ChromeDriver(option));
             }else if (browser.equalsIgnoreCase("edge")) {
                 System.setProperty("webdriver.edge.driver", "C:\\edgedriver\\msedgedriver.exe");
                 tlDriver.set(new EdgeDriver());

@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>BN Automation Report</title>
+<title>B&N Execution Report</title>
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
 <link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
-<style type="text/css"></style></head><body class="spa bdd-report dark">
+<style type="text/css"></style></head><body class="spa -report standard">
   <div class="app">
     <div class="layout">
 <div class="header navbar">
@@ -32,10 +32,10 @@
 </ul>
 <ul class="nav-right">
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Barnes and Noble - Regression</span></a>
+<a href="#"><span class="badge badge-primary">Barnes & Noble Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Oct 11, 2025 13:15:39</span></a>
+<a href="#"><span class="badge badge-primary">Oct 11, 2025 01:15:39 PM</span></a>
 </li>
 </ul>
 </div>
@@ -74,14 +74,14 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="pass" test-id="5"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Search page feature on adactin hotel website</p>
+            <p class="name">Scenario: Search page title</p>
             <p class="text-sm">
-              <span>1:15:40 PM</span> / <span>00:00:08:363</span>
+              <span>1:15:42 PM</span> / <span>00:00:06:196</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,52 +89,36 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Search page feature on adactin hotel website</h5>
-<span class='badge badge-success'>10.11.2025 1:15:40 PM</span>
+<h5 class="test-status text-pass">Scenario: Search page title</h5>
+<span class='badge badge-success'>10.11.2025 1:15:42 PM</span>
 <span class='badge badge-danger'>10.11.2025 1:15:48 PM</span>
-<span class='badge badge-default'>00:00:08:363</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default'>00:00:06:196</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-10 m-l-5"></div>
 </div>
-</div>
-<div class="accordion mt-4">
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Search page title</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepDefinitions.Search.user_is_already_logged_in_website(io.cucumber.datatable.DataTable)">
-                <span>Given user is already logged in website</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>kanakasaimereddy99@gmail.com</td><td>Kanak@0321</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepDefinitions.Search.user_is_on_search_page()">
-                <span>Given user is on search page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepDefinitions.Search.user_gets_the_title_of_the_search_page()">
-                <span>When user gets the title of the search page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepDefinitions.Search.page_title_should_be(java.lang.String)">
-                <span>Then search page title should be "Adactin.com - Search Hotel"</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>1:15:42 PM</td>
+        <td>
+          Started scenario: Search page title on browser: chrome
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>1:15:48 PM</td>
+        <td>
+          Scenario passed: Search page title
+        </td>
+      </tr>
+  </tbody>
+</table>
 </div>
           </div>
         </li>
@@ -152,33 +136,33 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Oct 11, 2025 13:15:39</h3>
+<h3>Oct 11, 2025 01:15:39 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Oct 11, 2025 13:15:48</h3>
+<h3>Oct 11, 2025 01:15:48 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
-<p class="m-b-0 text-pass">Features Passed</p>
+<p class="m-b-0 text-pass">Tests Passed</p>
 <h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
-<p class="m-b-0 text-fail">Features Failed</p>
+<p class="m-b-0 text-fail">Tests Failed</p>
 <h3>0</h3>
 </div></div>
 </div>
 </div>
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="card">
 <div class="card-header">
-<h6 class="card-title">Features</h6>
+<h6 class="card-title">Tests</h6>
 </div>
 <div class="card-body">
 <div class="">
@@ -187,52 +171,32 @@
 </div>
 <div class="card-footer">
 <div><small data-tooltip='100%'>
-<b>1</b> features passed
+<b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
 </div>
 </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-6">
 <div class="card">
 <div class="card-header">
-<h6 class="card-title">Scenarios</h6>
+<h6 class="card-title">Log events</h6>
 </div>
 <div class="card-body">
 <div class="">
-<canvas id='child-analysis' width='115' height='90'></canvas>
+<canvas id='events-analysis' width='115' height='90'></canvas>
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>1</b> scenarios passed</small></div>
+<div><small data-tooltip='50%'><b>1</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
-</small>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="card">
-<div class="card-header">
-<h6 class="card-title">Steps</h6>
-</div>
-<div class="card-body">
-<div class="">
-<canvas id='grandchild-analysis' width='115' height='90'></canvas>
-</div>
-</div>
-<div class="card-footer">
-<div><small data-tooltip='100%'><b>4</b> steps passed</small></div>
-<div>
-<small data-tooltip='0%'><b>0</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>1</b> others
 </small>
 </div>
 </div>
@@ -248,10 +212,40 @@
 </div></div>
 <script>
 var timeline = {
-"Search page feature on adactin hotel website":8.363
+"Scenario: Search page title":6.196
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>QA Engineer</td>
+<td>Sai</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>QA</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Chrome</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Windows 10</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>17.0.12</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 </div>
 </div>
 <script>
@@ -262,18 +256,23 @@ failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 1,
+passChild: 0,
 failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 4,
+passGrandChild: 0,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
+passEvents: 1,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 1
 };
 </script>        </div>
       </div>
