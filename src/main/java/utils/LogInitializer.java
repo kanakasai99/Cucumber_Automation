@@ -12,7 +12,7 @@ public class LogInitializer {
     public static void initializeLogger() {
         PropertyConfigurator.configure("src/test/resources/log4j.properties");
 
-        String logDir = "C:/Users/Sai/IdeaProjects/SeleniumAutomationLab/test-output/logs/";
+        String logDir = "C:/Users/Sai/IdeaProjects/Cucumber_Automation/test-output/logs/";
 
 
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());

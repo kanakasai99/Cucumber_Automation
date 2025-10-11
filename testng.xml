@@ -3,6 +3,9 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="runner.TestNGCucumberRunner"/>
+            <class name="stepDefinitions.Day1.AutomationExcercise"/>
+            <class name="stepDefinitions.Day1.ReadingDataFromExcel"/>
+            <class name="stepDefinitions.Day1.DynamicDropDown"/>
         </classes>
     </test>
 

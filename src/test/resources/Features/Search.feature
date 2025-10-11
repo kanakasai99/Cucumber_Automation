@@ -2,7 +2,7 @@ Feature: Search page feature on adactin hotel website
   Background:
     Given user is already logged in website
     |username|password|
-    |kanakasai.mereddy03@gmail.com|Kanak@0321|
+    |kanakasaimereddy99@gmail.com|Kanak@0321|
 
   Scenario: Search page title
     Given user is on search page
